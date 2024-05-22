@@ -15,13 +15,13 @@ def main():
 
     driver = webdriver.Chrome(options=options)
 
-    url = "https://www.google.com"
+    url = "https://www.python.org/"
     driver.get(url)
     driver.save_screenshot('screenshot.png')
     # time.sleep(3)
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
-    headings = soup.find_all('div', {'class': 'szppmdbYutt__middle-slot-promo'})
+    headings = soup.find_all('h2', {'class': 'widget-title'})
     for heading in headings:
         print(heading.getText())
 
